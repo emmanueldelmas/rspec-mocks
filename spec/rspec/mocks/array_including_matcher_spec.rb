@@ -46,6 +46,10 @@ module RSpec
             expect(array_including(1, 2, 3, 4, 5)).not_to be === [1, 2]
           end
 
+          it "does not match non-array without raising error" do
+            expect(array_including(1, 2, 3) === 1).not_to be
+          end
+
           it "fails when passed a composed matcher is pased and not satisfied" do
             with_unfulfilled_double do |dbl|
               expect {
