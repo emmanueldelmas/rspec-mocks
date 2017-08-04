@@ -68,8 +68,8 @@ module RSpec
         end
 
         describe "failing" do
-          it "does not match a non-hash" do
-            expect(hash_including(:a => 1)).not_to be === 1
+          it "does not match a non-hash without raising an error" do
+            expect(hash_including(:a => 1) === 1).not_to be
           end
 
           it "does not match a hash with a missing key" do
